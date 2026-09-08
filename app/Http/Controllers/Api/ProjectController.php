@@ -24,7 +24,7 @@ class ProjectController extends Controller
     public function store(StoreProjectRequest $request): JsonResponse
     {
         $project = new Project;
-        $project->ownerId = $request->user()->id; // TODO: GET user UUID from session?
+        $project->ownerId = $request->user()->id;
         $project->save();
 
         return response()->json(null, 201);
