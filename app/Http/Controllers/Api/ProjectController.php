@@ -21,32 +21,36 @@ class ProjectController extends Controller
     /** POST /api/projects
      * Store a newly created resource in storage.
      */
-    public function store(StoreProjectRequest $request)
+    public function store(StoreProjectRequest $request): JsonResponse
     {
-        return response(null, 501);
+        $project = new Project;
+        $project->ownerId = $request->user()->id; // TODO: GET user UUID from session?
+        $project->save();
+
+        return response()->json(null, 201);
     }
 
     /** GET /api/project
      * Display the specified resource.
      */
-    public function show(Project $project)
+    public function show(Project $project): JsonResponse
     {
-        return response(null, 501);
+        return response()->json(null, 501);
     }
 
     /** PATCH /api/projects
      * Update the specified resource in storage.
      */
-    public function update(UpdateProjectRequest $request, Project $project)
+    public function update(UpdateProjectRequest $request, Project $project): JsonResponse
     {
-        return response(null, 501);
+        return response()->json(null, 501);
     }
 
     /** DELETE /api/projects
      * Remove the specified resource from storage.
      */
-    public function destroy(Project $project)
+    public function destroy(Project $project): JsonResponse
     {
-        return response(null, 501);
+        return response()->json(null, 501);
     }
 }

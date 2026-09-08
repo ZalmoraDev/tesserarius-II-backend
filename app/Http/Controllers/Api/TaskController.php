@@ -22,32 +22,35 @@ final class TaskController extends Controller
     /** POST /api/tasks
      * Store a newly created resource in storage.
      */
-    public function store(StoreTaskRequest $request)
+    public function store(StoreTaskRequest $request): JsonResponse
     {
-        return response(null, 501);
+        $task = new Task;
+        $task->save();
+
+        return response()->json(null, 201);
     }
 
     /** GET /api/task
      * Display the specified resource.
      */
-    public function show(Task $task)
+    public function show(Task $task): JsonResponse
     {
-        return response(null, 501);
+        return response()->json(null, 501);
     }
 
     /** PATCH /api/tasks
      * Update the specified resource in storage.
      */
-    public function update(UpdateTaskRequest $request, Task $task)
+    public function update(UpdateTaskRequest $request, Task $task): JsonResponse
     {
-        return response(null, 501);
+        return response()->json(null, 501);
     }
 
     /** DELETE /api/tasks
      * Remove the specified resource from storage.
      */
-    public function destroy(Task $task)
+    public function destroy(Task $task): JsonResponse
     {
-        return response(null, 501);
+        return response()->json(null, 501);
     }
 }

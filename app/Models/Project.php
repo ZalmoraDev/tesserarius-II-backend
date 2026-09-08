@@ -27,8 +27,6 @@ final class Project extends Model
 {
     use HasUuids, HasFactory;
 
-    // TODO: Assign owernId on creation by user who creates project
-
     /** owner_id, User relation */
     public function owner(): BelongsTo
     {
