@@ -1,20 +1,11 @@
 <?php
 
 use App\Http\Controllers\Api\HealthController;
+use App\Http\Controllers\Api\TaskController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "api" middleware group. Make something great!
-|
- */
+Route::apiResource('/health', HealthController::class) -> only(['index']);
 
-// The API is by RESTful design, so we use the HTTP verbs GET, POST, PUT and DELETE to perform CRUD operations on resources.
+Route::apiResource('/tasks', TaskController::class);
 
-// Auth routes
-Route::get('/health', [HealthController::class, 'index']);
+//Route::apiResource('/projects', ProjectCotroller::class);
