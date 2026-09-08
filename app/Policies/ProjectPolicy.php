@@ -2,14 +2,14 @@
 
 namespace App\Policies;
 
-use App\Models\Task;
+use App\Models\Project;
 use App\Models\User;
 use Illuminate\Auth\Access\Response;
 
-class TaskPolicy
+class ProjectPolicy
 {
     /**
-     * Determine whether the user can view many models.
+     * Determine whether the user can view any models.
      */
     public function viewAny(User $user): bool
     {
@@ -17,9 +17,9 @@ class TaskPolicy
     }
 
     /**
-     * Determine whether the user can view a specific model.
+     * Determine whether the user can view the model.
      */
-    public function view(User $user, Task $task): bool
+    public function view(User $user, Project $project): bool
     {
         return false;
     }
@@ -35,15 +35,15 @@ class TaskPolicy
     /**
      * Determine whether the user can update the model.
      */
-    public function update(User $user, Task $task): bool
+    public function update(User $user, Project $project): bool
     {
         return false;
     }
 
     /**
-     * Determine whether the user can soft-delete the model.
+     * Determine whether the user can delete the model.
      */
-    public function delete(User $user, Task $task): bool
+    public function delete(User $user, Project $project): bool
     {
         return false;
     }
@@ -51,16 +51,15 @@ class TaskPolicy
     /**
      * Determine whether the user can restore the model.
      */
-    public function restore(User $user, Task $task): bool
+    public function restore(User $user, Project $project): bool
     {
         return false;
     }
 
     /**
      * Determine whether the user can permanently delete the model.
-     * Opposed to `delete` which only soft-deletes
      */
-    public function forceDelete(User $user, Task $task): bool
+    public function forceDelete(User $user, Project $project): bool
     {
         return false;
     }

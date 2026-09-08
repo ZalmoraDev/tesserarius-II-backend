@@ -3,50 +3,49 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Task\StoreTaskRequest;
-use App\Http\Requests\Task\UpdateTaskRequest;
-use App\Models\Task;
+use App\Http\Requests\Project\StoreProjectRequest;
+use App\Http\Requests\Project\UpdateProjectRequest;
+use App\Models\Project;
 use Illuminate\Http\JsonResponse;
 
-
-final class TaskController extends Controller
+class ProjectController extends Controller
 {
-    /** GET /api/tasks
+    /** GET /api/projects
      * Display many resources
      * returns 200*/
     public function index(): JsonResponse
     {
-        return response()->json(Task::all(), 200, []);
+        return response()->json(Project::all(), 200, []);
     }
 
-    /** POST /api/tasks
+    /** POST /api/projects
      * Store a newly created resource in storage.
      */
-    public function store(StoreTaskRequest $request)
+    public function store(StoreProjectRequest $request)
     {
         return response(null, 501);
     }
 
-    /** GET /api/task
+    /** GET /api/project
      * Display the specified resource.
      */
-    public function show(Task $task)
+    public function show(Project $project)
     {
         return response(null, 501);
     }
 
-    /** PATCH /api/tasks
+    /** PATCH /api/projects
      * Update the specified resource in storage.
      */
-    public function update(UpdateTaskRequest $request, Task $task)
+    public function update(UpdateProjectRequest $request, Project $project)
     {
         return response(null, 501);
     }
 
-    /** DELETE /api/tasks
+    /** DELETE /api/projects
      * Remove the specified resource from storage.
      */
-    public function destroy(Task $task)
+    public function destroy(Project $project)
     {
         return response(null, 501);
     }
