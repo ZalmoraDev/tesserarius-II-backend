@@ -26,6 +26,7 @@ return new class extends Migration {
 
             $table->timestamp('due_at')->nullable();
             $table->timestamps(); // created_at & updated_at
+            $table->softDeletes(); // deleted_at
         });
     }
 

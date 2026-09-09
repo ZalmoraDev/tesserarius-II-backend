@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Carbon;
 
 /**
@@ -25,7 +26,8 @@ use Illuminate\Support\Carbon;
 #[Hidden([])]
 final class Project extends Model
 {
-    use HasUuids, HasFactory;
+    use HasFactory;
+    use HasUuids, SoftDeletes;
 
     /** owner_id, User relation */
     public function owner(): BelongsTo

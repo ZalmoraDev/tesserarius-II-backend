@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('description')->nullable();
 
             $table->timestamps(); // created_at & updated_at
+            $table->softDeletes(); // deleted_at
         });
     }
 

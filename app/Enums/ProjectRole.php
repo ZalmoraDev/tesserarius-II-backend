@@ -4,7 +4,7 @@ namespace App\Enums;
 
 /** Used in Router comparisons for access control.
  * Uses UserRole and adds non-project access roles (Anyone, Authenticated) */
-enum AccessRole: int
+enum ProjectRole: int
 {
     // TODO: look into maybe reworking
 

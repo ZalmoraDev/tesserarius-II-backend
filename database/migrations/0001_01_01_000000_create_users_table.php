@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
@@ -13,12 +12,21 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('name');
+            $table->string('username', 32)->unique();
+            $table->string('first_name', 128);
+            $table->string('last_name', 128);
+
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
-            $table->timestamps();
+            $table->string('password'); // hashed
+
+            $table->timestamps(); // created_at & updated_at
+            $table->softDeletes(); // deleted_at
+
+            $table->rememberToken(); // Used against 'Remember Me' cookie hijacking
+            // two_factor_secret         (added by `Use TwoFactorAuthenticatable`)
+            // two_factor_recovery_codes (added by `Use TwoFactorAuthenticatable`)
+            // two_factor_confirmed_at   (added by `Use TwoFactorAuthenticatable`)
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {
@@ -29,7 +37,7 @@ return new class extends Migration
 
         Schema::create('sessions', function (Blueprint $table) {
             $table->string('id')->primary();
-            $table->foreignId('user_id')->nullable()->index();
+            $table->foreignUuid('user_id')->nullable()->index();
             $table->string('ip_address', 45)->nullable();
             $table->text('user_agent')->nullable();
             $table->longText('payload');

@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\Attributes\Table;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Attributes\Hidden;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Carbon;
 
 /**
@@ -34,7 +35,8 @@ use Illuminate\Support\Carbon;
 #[Hidden([])]
 final class Task extends Model
 {
-    use HasUuids, HasFactory;
+    use HasFactory;
+    use HasUuids, SoftDeletes;
 
     /** project_id, Project relation */
     public function project(): BelongsTo
