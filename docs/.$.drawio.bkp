@@ -1,6 +1,6 @@
 <mxfile host="Electron" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.6.1 Chrome/142.0.7444.265 Electron/39.5.2 Safari/537.36">
   <diagram name="ERD" id="c1UutKZupiT9EWhslvuf">
-    <mxGraphModel dx="1142" dy="2312" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1169" pageHeight="827" background="none" math="0" shadow="0">
+    <mxGraphModel dx="885" dy="2127" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1169" pageHeight="827" background="none" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -1701,11 +1701,6 @@
             <mxPoint x="1745.002857142858" y="-722.0014285714285" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="09OKH-L2r519fpORLalq-11" connectable="0" parent="vDKujKlJyQjmSvHdb0ag-784" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="members" vertex="1">
-          <mxGeometry relative="1" x="0.3159" y="-1" as="geometry">
-            <mxPoint x="1" y="-3" as="offset" />
-          </mxGeometry>
-        </mxCell>
         <mxCell id="vDKujKlJyQjmSvHdb0ag-785" edge="1" parent="1" source="vDKujKlJyQjmSvHdb0ag-79" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=auto;html=1;rounded=1;endArrow=none;endFill=0;curved=0;fontStyle=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;dashed=1;" target="vDKujKlJyQjmSvHdb0ag-22" value="">
           <mxGeometry relative="1" width="80" as="geometry">
             <Array as="points">
@@ -1899,11 +1894,6 @@
             </Array>
             <mxPoint x="1433.002857142858" y="-725.1114285714285" as="sourcePoint" />
             <mxPoint x="1513.002857142858" y="-725.1114285714285" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="09OKH-L2r519fpORLalq-10" connectable="0" parent="vDKujKlJyQjmSvHdb0ag-814" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="member of" vertex="1">
-          <mxGeometry relative="1" x="-0.5603" as="geometry">
-            <mxPoint x="2" y="-36" as="offset" />
           </mxGeometry>
         </mxCell>
         <mxCell id="vDKujKlJyQjmSvHdb0ag-819" edge="1" parent="1" source="vDKujKlJyQjmSvHdb0ag-800" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=auto;html=1;rounded=1;endArrow=none;endFill=0;curved=0;fontStyle=0;dashed=1;" target="vDKujKlJyQjmSvHdb0ag-71" value="">
@@ -2642,11 +2632,6 @@
             <mxPoint x="1267" y="-589" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="09OKH-L2r519fpORLalq-7" connectable="0" parent="vDKujKlJyQjmSvHdb0ag-1087" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="assigned tasks" vertex="1">
-          <mxGeometry relative="1" x="-0.0586" y="-1" as="geometry">
-            <mxPoint as="offset" />
-          </mxGeometry>
-        </mxCell>
         <mxCell id="vDKujKlJyQjmSvHdb0ag-1088" edge="1" parent="1" source="vDKujKlJyQjmSvHdb0ag-1067" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=auto;html=1;rounded=1;endArrow=none;endFill=0;curved=0;fontStyle=0" target="vDKujKlJyQjmSvHdb0ag-2" value="">
           <mxGeometry relative="1" width="80" as="geometry">
             <Array as="points">
@@ -2655,11 +2640,6 @@
             </Array>
             <mxPoint x="2078" y="-562" as="sourcePoint" />
             <mxPoint x="2149" y="-562" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="09OKH-L2r519fpORLalq-8" connectable="0" parent="vDKujKlJyQjmSvHdb0ag-1088" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="assignees" vertex="1">
-          <mxGeometry relative="1" x="-0.178" as="geometry">
-            <mxPoint x="-23" as="offset" />
           </mxGeometry>
         </mxCell>
         <mxCell id="09OKH-L2r519fpORLalq-1" edge="1" parent="1" source="vDKujKlJyQjmSvHdb0ag-501" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=auto;html=1;rounded=1;exitX=1;exitY=0.105;exitDx=0;exitDy=0;exitPerimeter=0;endArrow=none;endFill=0;" target="09OKH-L2r519fpORLalq-2" value="">

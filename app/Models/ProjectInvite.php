@@ -42,13 +42,13 @@ class ProjectInvite extends Model
     use HasUuids, SoftDeletes;
 
     //#region One-Relations
-    /** ProjectInvite belongsTo one userInviter */
+    /** {@see ProjectInvite} always belongsTo one {@see User} */
     public function userInviter(): BelongsTo
     {
         return $this->belongsTo(User::class, 'invited_by');
     }
 
-    /** ProjectInvite belongsTo one project */
+    /** {@see ProjectInvite} always belongsTo one {@see Project} */
     public function project(): BelongsTo
     {
         return $this->belongsTo(Project::class);

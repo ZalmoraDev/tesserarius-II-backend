@@ -61,39 +61,37 @@ class User extends Authenticatable implements PasskeyUser
         ];
     }
 
-    // TODO: Is the naming convention of these relations correct/logical?
-
     //#region One-Relations
     //#endregion One-Relations
 
 
     //#region Many-Relations
-    /** User HasMany tasksCreated */
+    /** {@see User} optionally hasMany {@see Task} created */
     public function tasksCreated(): HasMany
     {
         return $this->hasMany(Task::class);
     }
 
-    /** User HasMany projectsOwned */
+    /** {@see User} optionally hasMany {@see Project} owned */
     public function projectsOwned(): HasMany
     {
         return $this->hasMany(Project::class);
     }
 
-    /** User HasMany projectInvitesSent */
+    /** {@see User} optionally hasMany {@see ProjectInvite} sent */
     public function projectInvitesSent(): HasMany
     {
         return $this->hasMany(ProjectInvite::class);
     }
 
-    /** User BelongsToMany taskAssignees */
-    public function taskAssignees(): BelongsToMany
+    /** {@see User} optionally belongsToMany {@see Task} via task_assignees */
+    public function tasksAssigned(): BelongsToMany
     {
         return $this->belongsToMany(Task::class, 'task_assignees');
     }
 
-    /** User BelongsToMany projectMembers */
-    public function projectsMembers(): BelongsToMany
+    /** {@see User} optionally belongsToMany {@see Project} via project_members */
+    public function projectMembersOf(): BelongsToMany
     {
         return $this->belongsToMany(Project::class, 'project_members');
     }

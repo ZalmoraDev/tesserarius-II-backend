@@ -35,8 +35,8 @@ final class Project extends Model
     use HasUuids, SoftDeletes;
 
     //#region One-Relations
-    /** Project belongsTo one userOwner */
-    public function userOwner(): BelongsTo
+    /** {@see Project} always belongsTo one {@see User} */
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class, 'owner_id');
     }
@@ -44,19 +44,19 @@ final class Project extends Model
 
 
     //#region Many-Relations
-    /** Project hasMany tasks */
+    /** {@see Project} optionally hasMany {@see Task} */
     public function tasks(): HasMany
     {
         return $this->hasMany(Task::class);
     }
 
-    /** Project hasMany projectInvites */
+    /** {@see Project} optionally hasMany {@see ProjectInvite} */
     public function projectInvites(): HasMany
     {
         return $this->hasMany(ProjectInvite::class);
     }
 
-    /** Project belongsToMany projectMembers */
+    /** {@see Project} optionally belongsToMany {@see User} via project_members */
     public function projectMembers(): BelongsToMany
     {
         return $this->belongsToMany(User::class, 'project_members');

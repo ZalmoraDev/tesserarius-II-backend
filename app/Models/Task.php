@@ -46,13 +46,13 @@ final class Task extends Model
     use HasUuids, SoftDeletes;
 
     //#region One-Relations
-    /** Task BelongsTo one creator */
-    public function creator(): BelongsTo
+    /** {@see Task} always belongsTo one {@see User} creator */
+    public function userCreator(): BelongsTo
     {
         return $this->belongsTo(User::class, 'creator_id');
     }
 
-    /** Task BelongsTo one project */
+    /** {@see Task} always belongsTo one {@see Project} */
     public function project(): BelongsTo
     {
         return $this->belongsTo(Project::class);
@@ -61,7 +61,7 @@ final class Task extends Model
 
 
     //#region Many-Relations
-    /** Task BelongsToMany taskAssignees */
+    /** {@see Task} optionally belongsToMany {@see User} via task_assignees */
     public function taskAssignees(): BelongsToMany
     {
         return $this->belongsToMany(User::class, 'task_assignees');
