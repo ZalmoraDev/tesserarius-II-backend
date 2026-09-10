@@ -61,10 +61,10 @@ final class Task extends Model
 
 
     //#region Many-Relations
-    /** Task BelongsToMany usersAssigned */
-    public function usersAssigned(): BelongsToMany
+    /** Task BelongsToMany taskAssignees */
+    public function taskAssignees(): BelongsToMany
     {
-        return $this->belongsToMany(User::class);
+        return $this->belongsToMany(User::class, 'task_assignees');
     }
     //#endregion Many-Relations
 }

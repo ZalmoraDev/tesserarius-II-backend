@@ -86,16 +86,16 @@ class User extends Authenticatable implements PasskeyUser
         return $this->hasMany(ProjectInvite::class);
     }
 
-    /** User BelongsToMany tasks */
-    public function tasksAssigned(): BelongsToMany
+    /** User BelongsToMany taskAssignees */
+    public function taskAssignees(): BelongsToMany
     {
-        return $this->belongsToMany(Task::class);
+        return $this->belongsToMany(Task::class, 'task_assignees');
     }
 
-    /** User BelongsToMany projects */
-    public function projects(): BelongsToMany
+    /** User BelongsToMany projectMembers */
+    public function projectsMembers(): BelongsToMany
     {
-        return $this->belongsToMany(Project::class);
+        return $this->belongsToMany(Project::class, 'project_members');
     }
     //#endregion Many-Relations
 }

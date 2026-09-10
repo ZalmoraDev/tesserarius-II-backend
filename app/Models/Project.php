@@ -59,7 +59,7 @@ final class Project extends Model
     /** Project belongsToMany projectMembers */
     public function projectMembers(): BelongsToMany
     {
-        return $this->belongsToMany(User::class);
+        return $this->belongsToMany(User::class, 'project_members');
     }
     //#endregion Many-Relations
 }

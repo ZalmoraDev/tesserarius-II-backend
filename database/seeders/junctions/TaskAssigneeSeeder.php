@@ -19,7 +19,7 @@ class TaskAssigneeSeeder extends Seeder
         // For each Task assign 3 random User ID's for `user_id` field
         $this->command->info('Creating task_assignees (junction table, Users <-> Tasks)...');
         Task::all()->each(function (Task $task) use ($users) {
-            $task->usersAssigned()->attach(
+            $task->taskAssignees()->attach(
                 $users->random(rand(1, 3))->pluck('id')->toArray()
             );
         });
