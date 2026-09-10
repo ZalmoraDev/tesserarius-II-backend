@@ -38,7 +38,7 @@ use Illuminate\Support\Carbon;
  * @property Carbon|null $deleted_at EA
  */
 #[Table(key: 'id', keyType: 'string', incrementing: false)]
-#[Fillable(['project_id', 'title', 'description', 'status', 'priority', 'assignee_id', 'due_date'])]
+#[Fillable(['project_id', 'creator_id', 'title', 'description', 'status', 'priority', 'due_at', 'completed_at'])]
 #[Hidden([])]
 final class Task extends Model
 {

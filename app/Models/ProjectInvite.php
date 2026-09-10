@@ -34,7 +34,7 @@ use Illuminate\Support\Carbon;
  * @property Carbon|null $deleted_at EA
  */
 #[Table(key: 'id', keyType: 'string', incrementing: false)]
-#[Fillable(['name', 'description'])] // TODO: fill fields
+#[Fillable(['project_id', 'invited_by','email', 'role', 'expires_at'])]
 #[Hidden([])]
 class ProjectInvite extends Model
 {

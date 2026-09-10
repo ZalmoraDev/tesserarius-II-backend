@@ -5,9 +5,9 @@ namespace App\Models;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Attributes\Hidden;
+use Illuminate\Database\Eloquent\Attributes\Table;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -21,8 +21,8 @@ use Laravel\Fortify\TwoFactorAuthenticatable;
 /**
  * @property string $id UUID EA
  * @property string $username
- * @property string $firstName
- * @property string $lastName
+ * @property string $first_name
+ * @property string $last_name
  *
  * @property string $email
  * @property Carbon|null $email_verified_at
@@ -37,8 +37,9 @@ use Laravel\Fortify\TwoFactorAuthenticatable;
  * @property Carbon|null $updated_at EA
  * @property Carbon|null $deleted_at EA
  */
-#[Fillable(['username', 'email', 'password'])]
-#[Hidden(['password', 'two_factor_secret', 'two_factor_recovery_codes', 'remember_token'])]
+#[Table(key: 'id', keyType: 'string', incrementing: false)]
+#[Fillable(['username', 'first_name', 'last_name', 'email', 'password'])]
+#[Hidden(['password', 'remember_token', 'two_factor_secret', 'two_factor_recovery_codes'])]
 class User extends Authenticatable implements PasskeyUser
 {
     use HasFactory;

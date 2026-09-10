@@ -27,7 +27,7 @@ use Illuminate\Support\Carbon;
  * @property Carbon|null $deleted_at EA
  */
 #[Table(key: 'id', keyType: 'string', incrementing: false)]
-#[Fillable(['name', 'description'])]
+#[Fillable(['owner_id', 'name', 'description'])]
 #[Hidden([])]
 final class Project extends Model
 {

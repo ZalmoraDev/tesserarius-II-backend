@@ -17,7 +17,7 @@ class ProjectMemberSeeder extends Seeder
         $users = User::all();
 
         // For each Project assign 3 random User ID's for `user_id` field
-        $this->command->info('Creating project_members (junction table, Projects <-> Users)...');
+        $this->command->info('Creating project_members... (junction table, Projects <-> Users)');
         Project::all()->each(function (Project $project) use ($users) {
             $project->projectMembers()->attach(
                 $users->random(rand(1, 3))->pluck('id')->toArray()
