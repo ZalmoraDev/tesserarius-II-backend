@@ -23,13 +23,13 @@ class TaskFactory extends Factory
     {
         return [
             'project_id' => Project::factory(),
-            'title' => $this->faker->sentence(4),
-            'description' => $this->faker->paragraph(),
+            'title' => fake()->sentence(4),
+            'description' => fake()->paragraph(),
             'status' => TaskStatus::cases()[array_rand(TaskStatus::cases())],
             'priority' => TaskPriority::cases()[array_rand(TaskPriority::cases())],
             'creator_id' => User::factory(),
             'assignee_id' => User::factory(),
-            'due_at' => $this->faker->optional()->dateTimeBetween('now', '+1 year')
+            'due_at' => fake()->optional()->dateTimeBetween('now', '+1 year')
         ];
     }
 }

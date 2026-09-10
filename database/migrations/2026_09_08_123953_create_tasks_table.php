@@ -15,8 +15,8 @@ return new class extends Migration {
             $table->uuid('id')->primary();
             $table->foreignUuid('project_id')->references('id')->on('projects')->onDelete('cascade');
 
-            $table->string('title')->nullable();
-            $table->string('description')->nullable();
+            $table->string('title');
+            $table->text('description')->nullable();
 
             $table->enum('status', ['Backlog', 'ToDo', 'Doing', 'Review', 'Done'])->default('Backlog');
             $table->enum('priority', ['None', 'Low', 'Medium', 'High'])->default('None');
@@ -25,6 +25,7 @@ return new class extends Migration {
             $table->foreignUuid('assignee_id')->nullable()->references('id')->on('users')->onDelete('set null');
 
             $table->timestamp('due_at')->nullable();
+            $table->timestamp('completed_at')->nullable();
             $table->timestamps(); // created_at & updated_at
             $table->softDeletes(); // deleted_at
         });

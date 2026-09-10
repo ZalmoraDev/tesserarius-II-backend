@@ -20,8 +20,8 @@ class ProjectFactory extends Factory
     {
         return [
             'owner_id' => User::factory(),
-            'name' => $this->faker->words(2, true),
-            'description' => $this->faker->paragraph(1)
+            'name' => fake()->words(2, true),
+            'description' => fake()->paragraph(1)
         ];
     }
 }

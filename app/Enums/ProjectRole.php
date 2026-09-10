@@ -2,18 +2,10 @@
 
 namespace App\Enums;
 
-/** Used in Router comparisons for access control.
- * Uses UserRole and adds non-project access roles (Anyone, Authenticated) */
-enum ProjectRole: int
+/** User roles within Project and Database context */
+enum ProjectRole: string
 {
-    // TODO: look into maybe reworking
-
-    // Public access
-    case Anyone = 0;
-    case Authenticated = 1;
-
-    // Project-role access
-    case Member = 2;
-    case Admin = 3;
-    case Owner = 4;
+    case Member = "member";
+    case Admin = "admin";
+    case Owner = "owner";
 }
