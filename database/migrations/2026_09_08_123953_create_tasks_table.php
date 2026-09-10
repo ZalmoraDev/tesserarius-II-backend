@@ -14,15 +14,13 @@ return new class extends Migration {
         Schema::create('tasks', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->foreignUuid('project_id')->references('id')->on('projects')->onDelete('cascade');
+            $table->foreignUuid('creator_id')->references('id')->on('users')->onDelete('cascade');
 
             $table->string('title');
             $table->text('description')->nullable();
 
             $table->enum('status', ['Backlog', 'ToDo', 'Doing', 'Review', 'Done'])->default('Backlog');
             $table->enum('priority', ['None', 'Low', 'Medium', 'High'])->default('None');
-
-            $table->foreignUuid('creator_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreignUuid('assignee_id')->nullable()->references('id')->on('users')->onDelete('set null');
 
             $table->timestamp('due_at')->nullable();
             $table->timestamp('completed_at')->nullable();
