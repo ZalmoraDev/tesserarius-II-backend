@@ -17,11 +17,11 @@ return new class extends Migration
             $table->foreignUuid('project_id')->references('id')->on('projects')->onDelete('cascade');
             $table->primary(['user_id', 'project_id']);
 
-            $table->enum('role', ['member', 'admin', 'owner'])->default('member');
+            $table->enum('role', ['member', 'admin', 'owner'])->default('member'); // TODO: default value 'member' wouldn't need to be used, pick random instead
             $table->enum('status', ['pending', 'accepted', 'declined', 'expired'])->default('pending');
 
-            $table->timestamp('joined_at')->default(now()); // Same logic as created_at
-            $table->timestamp('updated_at')->default(now()); // TODO: maybe remove default(now), null constraint on relation
+            $table->timestamp('joined_at')->default(now()); // Same logic as created_at // TODO: default value 'now()' should already be done
+            $table->timestamp('updated_at')->default(now()); // TODO: default value 'now()' should already be done
             $table->softDeletes(); // deleted_at
         });
     }

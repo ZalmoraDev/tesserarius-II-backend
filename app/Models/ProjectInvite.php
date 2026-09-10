@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Attributes\Table;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Carbon;
 
@@ -39,4 +40,22 @@ class ProjectInvite extends Model
 {
     use HasFactory;
     use HasUuids, SoftDeletes;
+
+    //#region One-Relations
+    /** ProjectInvite belongsTo one userInviter */
+    public function userInviter(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'invited_by');
+    }
+
+    /** ProjectInvite belongsTo one project */
+    public function project(): BelongsTo
+    {
+        return $this->belongsTo(Project::class);
+    }
+    //#endregion One-Relations
+
+
+    //#region Many-Relations
+    //#endregion Many-Relations
 }

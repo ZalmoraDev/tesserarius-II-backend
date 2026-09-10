@@ -7,7 +7,9 @@ use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Attributes\Hidden;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -59,15 +61,41 @@ class User extends Authenticatable implements PasskeyUser
         ];
     }
 
-    /** task_assignees table, User <-> Task relation */
-    public function assignedTasks(): BelongsToMany
+    // TODO: Is the naming convention of these relations correct/logical?
+
+    //#region One-Relations
+    //#endregion One-Relations
+
+
+    //#region Many-Relations
+    /** User HasMany tasksCreated */
+    public function tasksCreated(): HasMany
     {
-        return $this->belongsToMany(Task::class, 'task_assignees');
+        return $this->hasMany(Task::class);
     }
 
-    /** project_members table, Project <-> User relation */
-    public function memberOf(): BelongsToMany
+    /** User HasMany projectsOwned */
+    public function projectsOwned(): HasMany
     {
-        return $this->belongsToMany(Project::class, 'project_members');
+        return $this->hasMany(Project::class);
     }
+
+    /** User HasMany projectInvitesSent */
+    public function projectInvitesSent(): HasMany
+    {
+        return $this->hasMany(ProjectInvite::class);
+    }
+
+    /** User BelongsToMany tasks */
+    public function tasksAssigned(): BelongsToMany
+    {
+        return $this->belongsToMany(Task::class);
+    }
+
+    /** User BelongsToMany projects */
+    public function projects(): BelongsToMany
+    {
+        return $this->belongsToMany(Project::class);
+    }
+    //#endregion Many-Relations
 }

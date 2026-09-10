@@ -13,13 +13,13 @@ class ProjectMemberSeeder extends Seeder
      */
     public function run(): void
     {
-        // TODO: revisit/research, maybe alter
+        // TODO: only create 'x' amount of entries, not all
         $users = User::all();
 
         // For each Project assign 3 random User ID's for `user_id` field
         $this->command->info('Creating project_members (junction table, Users <-> Projects)...');
         Project::all()->each(function (Project $project) use ($users) {
-            $project->members()->attach(
+            $project->projectMembers()->attach(
                 $users->random(rand(1, 3))->pluck('id')->toArray()
             );
         });

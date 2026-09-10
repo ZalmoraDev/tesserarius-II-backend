@@ -13,6 +13,7 @@ use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Attributes\Hidden;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Carbon;
 
@@ -44,21 +45,26 @@ final class Task extends Model
     use HasFactory;
     use HasUuids, SoftDeletes;
 
-    /** project_id, Project relation */
-    public function project(): BelongsTo
-    {
-        return $this->belongsTo(Project::class, 'project_id');
-    }
-
-    /** creator_id, User relation */
+    //#region One-Relations
+    /** Task BelongsTo one creator */
     public function creator(): BelongsTo
     {
         return $this->belongsTo(User::class, 'creator_id');
     }
 
-    /** task_assignees table, User <-> Task relation */
-    public function taskAssignees(): BelongsToMany
+    /** Task BelongsTo one project */
+    public function project(): BelongsTo
     {
-        return $this->belongsToMany(User::class, 'task_assignees');
+        return $this->belongsTo(Project::class);
     }
+    //#endregion One-Relations
+
+
+    //#region Many-Relations
+    /** Task BelongsToMany usersAssigned */
+    public function usersAssigned(): BelongsToMany
+    {
+        return $this->belongsToMany(User::class);
+    }
+    //#endregion Many-Relations
 }
