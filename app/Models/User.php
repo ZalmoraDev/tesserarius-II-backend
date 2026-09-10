@@ -3,11 +3,11 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Database\Factories\UserFactory;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Attributes\Hidden;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -17,19 +17,25 @@ use Laravel\Fortify\PasskeyAuthenticatable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 
 /**
- * @property string $id UUID
- * @property string $name
+ * @property string $id UUID EA
+ * @property string $username
+ * @property string $firstName
+ * @property string $lastName
+ *
  * @property string $email
  * @property Carbon|null $email_verified_at
+ *
  * @property string $password
- * @property string|null $two_factor_secret
- * @property string|null $two_factor_recovery_codes
- * @property Carbon|null $two_factor_confirmed_at
  * @property string|null $remember_token
- * @property Carbon|null $created_at
- * @property Carbon|null $updated_at
+ * @property string|null $two_factor_secret Chisel-2fa
+ * @property string|null $two_factor_recovery_codes Chisel-2fa
+ * @property Carbon|null $two_factor_confirmed_at Chisel-2fa
+ *
+ * @property Carbon|null $created_at EA
+ * @property Carbon|null $updated_at EA
+ * @property Carbon|null $deleted_at EA
  */
-#[Fillable(['name', 'email', 'password'])]
+#[Fillable(['username', 'email', 'password'])]
 #[Hidden(['password', 'two_factor_secret', 'two_factor_recovery_codes', 'remember_token'])]
 class User extends Authenticatable implements PasskeyUser
 {
@@ -51,5 +57,17 @@ class User extends Authenticatable implements PasskeyUser
             'two_factor_confirmed_at' => 'datetime',
             /* @end-chisel-2fa */
         ];
+    }
+
+    /** task_assignees table, User <-> Task relation */
+    public function assignedTasks(): BelongsToMany
+    {
+        return $this->belongsToMany(Task::class, 'task_assignees');
+    }
+
+    /** project_members table, Project <-> User relation */
+    public function memberOf(): BelongsToMany
+    {
+        return $this->belongsToMany(Project::class, 'project_members');
     }
 }

@@ -27,6 +27,7 @@ use Illuminate\Support\Carbon;
  *
  * @property Carbon|null $expires_at
  * @property Carbon|null $accepted_at
+ *
  * @property Carbon|null $created_at EA
  * @property Carbon|null $updated_at EA
  * @property Carbon|null $deleted_at EA
