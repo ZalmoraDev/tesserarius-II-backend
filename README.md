@@ -7,6 +7,7 @@
 
 ![Edit Project View](docs/media/erd.png)
 ![Laravel 13](https://img.shields.io/badge/laravel_13-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)
+![Draw.io](https://img.shields.io/badge/draw.io-F08705.svg?style=for-the-badge&logo=diagrams.net&logoColor=white)
 ![PostgreSQL](https://img.shields.io/badge/postgresql_18-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/ts-3178C6.svg?style=for-the-badge&logo=typescript&logoColor=white)
 ![Docker](https://img.shields.io/badge/docker-0db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
